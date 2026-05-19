@@ -15,6 +15,12 @@ export default function Layout() {
           title: null,
         }}
       />
+      <Stack.Screen
+        name="login"
+        options={{
+          title: null,
+        }}
+      />
     </Stack>
   );
 }
