@@ -22,7 +22,7 @@ export default function login() {
             <View style={styles.ViewLogin}>
                 <InputField label='E-MAIL:' placeholder="e-mail" value={email} onChangeText={setEmail}></InputField>
             </View>
-            <ButtonUp text="LOGIN" onPress={() => {console.log(email)}}></ButtonUp>
+            <ButtonUp text="LOGIN" onPress={() => {console.log(email) , router.push("/home")}}></ButtonUp>
         </View>       
     );
 }

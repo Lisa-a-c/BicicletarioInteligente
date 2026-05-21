@@ -24,7 +24,7 @@ export default function intro() {
                 <Text style={styles.LoginText}>
                     Já possui cadastro ?
                 </Text>
-                <Pressable style={styles.PressableLogin}>
+                <Pressable style={styles.PressableLogin} onPress={() => router.push("/login")}>
                     <Text style={styles.PressLoginText}>
                         login
                     </Text>

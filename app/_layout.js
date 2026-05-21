@@ -21,6 +21,12 @@ export default function Layout() {
           title: null,
         }}
       />
+      <Stack.Screen
+        name="home"
+        options={{
+            title: null,
+        }}
+      />
     </Stack>
   );
 }
