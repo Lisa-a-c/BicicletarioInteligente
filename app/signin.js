@@ -10,8 +10,6 @@ import Header from "../components/header";
 import InputField from "../components/inputfield";
 import ButtonUp from "../components/buttonSignup";
 import react from "react";
-import { getUserEmailAsync, setUserEmail } from "../services/emailAsync";
-import { getUserNameAsync, setUserNameAsync } from "../services/nameAsync";
 
 
 export default function singin() {

@@ -20,7 +20,7 @@ export default function ButtonMonitoring({
 
   function handlePress() {
 
-    setPressed(true);
+    setPressed(prevPressed => !prevPressed);
 
     if (onPress) {
       onPress();

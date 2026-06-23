@@ -21,6 +21,7 @@ export default StyleSheet.create({
     alignContent: 'center',
     alignItems:'center',
     justifyContent: 'center',
+    paddingHorizontal: 12,
   },
   ViewInstruction:{
     display: 'flex',
