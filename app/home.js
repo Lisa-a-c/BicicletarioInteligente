@@ -16,7 +16,7 @@ const DEBUG_IP = null; // ex: "http://192.168.0.101" ip da minha casa em cps
 
 // definição da area de busca do arduino
 
-const SUBNETS    = ["192.168.0", "192.168.1", "192.168.43", "192.168.4", "10.0.0"];
+const SUBNETS    = ["172.20.10", "192.168.0", "192.168.1", "192.168.43", "192.168.4", "10.0.0"];
 const IP_RANGE   = Array.from({ length: 254 }, (_, i) => i + 1); 
 const BATCH_SIZE = 10;    // limitando requisições, IOS aguenta no máximo 10
 const TIMEOUT_MS = 1500;  // timeout por host
