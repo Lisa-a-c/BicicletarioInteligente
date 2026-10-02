@@ -12,7 +12,7 @@ const POLLING_INTERVAL_MS   = 1000;
 const DELAY_ALERTA_ROUBO_MS = 3000;
 const DISCOVERY_TIMEOUT_MS  = 30000;
 
-const DEBUG_IP = null; // ex: "http://192.168.0.101" ip da minha casa em cps
+const DEBUG_IP = "http://192.168.1.205"; // ex: "http://192.168.0.101" ip da minha casa em cps
 
 // definição da area de busca do arduino
 

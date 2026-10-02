@@ -1,26 +1,26 @@
 /*
- * Bicicletário Inteligente — Firmware ESP32
+ * BicicletÃ¡rio Inteligente â Firmware ESP32
  * PlatformIO | Framework: Arduino
  *
  * Endpoints:
- *   GET  /ping     → { "device": "bicicletario" }
- *   GET  /status   → { "detected": bool, "distancia": float }
- *   POST /monitor  → body: { "monitoring": true|false }
+ *   GET  /ping     â { "device": "bicicletario" }
+ *   GET  /status   â { "detected": bool, "distancia": float }
+ *   POST /monitor  â body: { "monitoring": true|false }
  *
  * Pinos:
- *   HC-SR04 TRIG → GPIO 25
- *   HC-SR04 ECHO → GPIO 34
- *   LED Vermelho → GPIO 27
- *   LED Verde    → GPIO 26
+ *   HC-SR04 TRIG â GPIO 25
+ *   HC-SR04 ECHO â GPIO 34
+ *   LED Vermelho â GPIO 27
+ *   LED Verde    â GPIO 26
  */
 
 #include <Arduino.h>
 #include <WiFi.h>
 #include <WebServer.h>
 
-//CONFIGURAÇÕES 
-const char* SSID     = "YOUR_SSID";
-const char* PASSWORD = "YOUR_PASSWORD";
+//CONFIGURAÃÃES 
+const char* SSID     = "Desktop_F4027447"; //Desktop_F4027447 ou iPhone de Enzo
+const char* PASSWORD = "5078652003995932"; //5078652003995932 ou 11092007
 
 const int TRIG_PIN = 25;
 const int ECHO_PIN = 34;
@@ -54,23 +54,23 @@ float medirDistancia() {
 void atualizarLED() {
   if (!monitorando) {
     digitalWrite(LED_RED, LOW);
-    digitalWrite(LED_GRN, HIGH); // Verde — aguardando
+    digitalWrite(LED_GRN, HIGH); // Verde â aguardando
   } else if (bikeDetectada) {
     digitalWrite(LED_RED, LOW);
-    digitalWrite(LED_GRN, HIGH); // Verde — bike presente
+    digitalWrite(LED_GRN, HIGH); // Verde â bike presente
   } else {
     digitalWrite(LED_RED, HIGH);
-    digitalWrite(LED_GRN, LOW);  // Vermelho — alerta
+    digitalWrite(LED_GRN, LOW);  // Vermelho â alerta
   }
 }
 
-//conexão com o servidor
+//conexÃ£o com o servidor
 
 void handlePing() {
   server.send(200, "application/json", "{\"device\":\"bicicletario\"}");
 }
 
-//construção do JSON de informação de ocupação, recebe a requisição da presença de bicicleta '/status'
+//construÃ§Ã£o do JSON de informaÃ§Ã£o de ocupaÃ§Ã£o, recebe a requisiÃ§Ã£o da presenÃ§a de bicicleta '/status'
 
 void handleStatus() {
   float dist    = medirDistancia();
@@ -89,7 +89,7 @@ void handleStatus() {
   server.send(200, "application/json", json);
 }
 
-//recebe informação da mudança de status do botão para acender o led, esp manda um post avisando q ligou o botão
+//recebe informaÃ§Ã£o da mudanÃ§a de status do botÃ£o para acender o led, esp manda um post avisando q ligou o botÃ£o
 
 void handleMonitor() {
   if (server.method() == HTTP_POST) {
@@ -98,11 +98,11 @@ void handleMonitor() {
     Serial.println(monitorando ? ">> Monitoramento INICIADO" : ">> Monitoramento PARADO");
     atualizarLED();
   }
-  //fecha a comunicação
+  //fecha a comunicaÃ§Ã£o
   server.send(200, "application/json", "{\"ok\":true}");
 }
 
-//Execução
+//ExecuÃ§Ã£o
 
 void setup() {
   Serial.begin(115200);
